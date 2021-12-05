@@ -18,7 +18,8 @@ const OnlyNotAuthorizedUserHoc = (Component) => {
     render() {
       if (this.props.isFetching) {
         return <Spinner />;
-      } if (!this.props.data) {
+      }
+      if (!this.props.data) {
         return <Component history={this.props.history} />;
       }
       return null;
