@@ -12,15 +12,20 @@ const OnlyNotAuthorizedUserHoc = (Component) => {
 
   class HocForLoginSignUp extends React.Component {
     componentDidMount() {
-      this.props.checkAuth(this.props.history.replace);
+      const {
+        checkAuth,
+        history: { replace },
+      } = this.props;
+      checkAuth(replace);
     }
 
     render() {
-      if (this.props.isFetching) {
+      const { isFetching, data, history } = this.props;
+      if (isFetching) {
         return <Spinner />;
       }
-      if (!this.props.data) {
-        return <Component history={this.props.history} />;
+      if (!data) {
+        return <Component history={history} />;
       }
       return null;
     }
