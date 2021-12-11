@@ -2,13 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import articles from './articles.json';
 import styles from './AgencyLevelExperience.module.sass';
+import colorMap from './colorMap';
 
 const AgencyLevelExperience = () => {
   const mapArticles = (article, index) => (
     <article className={styles.article} key={index}>
-      <div
-        className={[styles.iconAgency, article.color, article.backgroundColor]}
-      >
+      <div style={colorMap[index]} className={styles.iconAgency}>
         <i className={article.iconsStyle} />
       </div>
       <h3>{article.header}</h3>
