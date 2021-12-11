@@ -6,7 +6,9 @@ import styles from './AgencyLevelExperience.module.sass';
 const AgencyLevelExperience = () => {
   const mapArticles = (article, index) => (
     <article className={styles.article} key={index}>
-      <div className={styles.iconAgency}>
+      <div
+        className={[styles.iconAgency, article.color, article.backgroundColor]}
+      >
         <i className={article.iconsStyle} />
       </div>
       <h3>{article.header}</h3>
